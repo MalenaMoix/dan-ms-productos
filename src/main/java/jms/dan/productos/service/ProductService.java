@@ -38,11 +38,10 @@ public class ProductService implements IProductService {
 
     @Override
     public Product getProductById(Integer id) {
-
-        if (productRepository.findById(id).isEmpty()) {
+        Product product = productRepository.findById(id).orElse(null);
+        if (product == null) {
             throw new ApiException(HttpStatus.NOT_FOUND.toString(), "Product not found", HttpStatus.NOT_FOUND.value());
         }
-
-        return productRepository.findById(id).get();
+        return product;
     }
 }
