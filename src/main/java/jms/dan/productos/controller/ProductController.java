@@ -38,6 +38,7 @@ public class ProductController {
     public ResponseEntity<?> getProductById(@PathVariable Integer id) {
         try {
             Product product = productService.getProductById(id);
+            System.out.println("producto " + product);
             return new ResponseEntity<>(product, HttpStatus.OK);
         } catch (ApiException e) {
             return new ResponseEntity<>(
