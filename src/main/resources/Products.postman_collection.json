@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "856f8cf6-be6c-48ec-a103-d0df47a830b5",
+		"name": "Products",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreateProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Product 1\",\r\n    \"description\": \"producto 1\",\r\n    \"price\": 100,\r\n    \"actualStock\": 50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{LocalHostProducts}}/{{api-products}}/products",
+					"host": [
+						"{{LocalHostProducts}}"
+					],
+					"path": [
+						"{{api-products}}",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateProduct",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Product 1\",\r\n    \"description\": \"producto 1\",\r\n    \"price\": 150,\r\n    \"actualStock\": 30\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{LocalHostProducts}}/{{api-products}}/products/1",
+					"host": [
+						"{{LocalHostProducts}}"
+					],
+					"path": [
+						"{{api-products}}",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetProducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{LocalHostProducts}}/{{api-products}}/products",
+					"host": [
+						"{{LocalHostProducts}}"
+					],
+					"path": [
+						"{{api-products}}",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetProductById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{LocalHostProducts}}/{{api-products}}/products/1",
+					"host": [
+						"{{LocalHostProducts}}"
+					],
+					"path": [
+						"{{api-products}}",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetProductByName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{LocalHostProducts}}/{{api-products}}/products/1",
+					"host": [
+						"{{LocalHostProducts}}"
+					],
+					"path": [
+						"{{api-products}}",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
