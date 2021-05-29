@@ -34,6 +34,18 @@ public class ProductController {
         }
     }
 
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<?> updateProduct(@PathVariable Integer id, @RequestBody Product newProduct) {
+        try {
+            Product product = productService.updateProduct(id, newProduct);
+            return ResponseEntity.ok(product);
+        } catch (ApiException e) {
+            return new ResponseEntity<>(
+                    new ApiError(e.getCode(), e.getDescription(), e.getStatusCode()),
+                    HttpStatus.valueOf(e.getStatusCode()));
+        }
+    }
+
     @GetMapping(path = "/{id}")
     public ResponseEntity<?> getProductById(@PathVariable Integer id) {
         try {
@@ -46,15 +58,20 @@ public class ProductController {
         }
     }
 
-    @GetMapping
-    public ResponseEntity<?> getProducts() {
+    @GetMapping(path = "/name/{name}")
+    public ResponseEntity<?> getProductByName(@PathVariable String name) {
         try {
-            List<Product> products = productService.getProducts();
-            return new ResponseEntity<>(products, HttpStatus.OK);
+            Product product = productService.getProductByName(name);
+            return ResponseEntity.ok(product);
         } catch (ApiException e) {
             return new ResponseEntity<>(
                     new ApiError(e.getCode(), e.getDescription(), e.getStatusCode()),
                     HttpStatus.valueOf(e.getStatusCode()));
         }
+    }
+
+    @GetMapping
+    public ResponseEntity<?> getProducts(@RequestParam(required = false) Integer minStock, @RequestParam(required = false) Integer maxStock, @RequestParam(required = false) Double price) {
+        return ResponseEntity.ok(productService.getProducts(minStock, maxStock, price));
     }
 }

@@ -1,11 +1,31 @@
 package jms.dan.productos.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
     private String description;
     private Double price;
     private Integer actualStock;
+
+    public Product() {
+
+    }
+
+    public Product(Integer id, String name, String description, Double price, Integer actualStock) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.actualStock = actualStock;
+    }
 
     public Integer getId() {
         return id;
