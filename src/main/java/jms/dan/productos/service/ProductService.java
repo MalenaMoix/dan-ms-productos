@@ -1,6 +1,6 @@
 package jms.dan.productos.service;
 
-import jms.dan.productos.domain.Product;
+import jms.dan.productos.model.Product;
 import jms.dan.productos.exceptions.ApiException;
 import jms.dan.productos.repository.IProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;

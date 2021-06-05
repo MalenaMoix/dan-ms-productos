@@ -1,6 +1,6 @@
 package jms.dan.productos.controller;
 
-import jms.dan.productos.domain.Product;
+import jms.dan.productos.model.Product;
 import jms.dan.productos.exceptions.ApiError;
 import jms.dan.productos.exceptions.ApiException;
 import jms.dan.productos.service.ProductService;
@@ -9,8 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("/products")

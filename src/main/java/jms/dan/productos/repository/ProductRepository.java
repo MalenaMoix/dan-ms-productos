@@ -1,6 +1,6 @@
 package jms.dan.productos.repository;
 
-import jms.dan.productos.domain.Product;
+import jms.dan.productos.model.Product;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
