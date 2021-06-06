@@ -1,14 +1,12 @@
 package jms.dan.productos.repository;
 
 import jms.dan.productos.model.Product;
-import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalInt;
 import java.util.stream.IntStream;
 
-@Repository
 public class ProductRepository {
     private static final List<Product> productsList = new ArrayList<>();
     private static Integer ID_GEN = 1;

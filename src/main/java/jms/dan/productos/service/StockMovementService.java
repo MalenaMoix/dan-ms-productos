@@ -71,7 +71,7 @@ public class StockMovementService implements IStockMovementService {
         logger.info("orderDetailIds size: " + orderDetailIds.size());
 
         for (Integer id : orderDetailIds) {
-            OrderDetailDTO detailDTO = orderDetailRepository.findById(id).orElse(null);
+            OrderDetailDTO detailDTO = orderDetailRepository.getOrderDetailById(id);
             if (detailDTO == null) {
                 throw new ApiException(HttpStatus.NOT_FOUND.toString(), "Order Detail not found", HttpStatus.NOT_FOUND.value());
             }
