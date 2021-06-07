@@ -95,15 +95,14 @@ public class StockMovementService implements IStockMovementService {
             ProvisionDetail provisionDetail = new ProvisionDetail();
             provisionDetail.setProduct(newProduct);
             provisionDetail.setQuantity(newProduct.getMinimumStock());
-            ProvisionDetail savedProvisionDetail = provisionDetailRepository.save(provisionDetail);
 
             List<ProvisionDetail> details = new ArrayList<>();
-            details.add(savedProvisionDetail);
+            details.add(provisionDetail);
             provision.setDetails(details);
 
             provisionRepository.save(provision);
 
-            stockMovement.setProvisionDetail(savedProvisionDetail);
+            stockMovement.setProvisionDetail(provisionDetail);
         }
 
         createStockMovement(stockMovement);

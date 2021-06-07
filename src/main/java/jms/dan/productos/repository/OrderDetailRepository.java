@@ -11,12 +11,11 @@ import org.springframework.web.reactive.function.client.WebClientException;
 
 @Repository
 public class OrderDetailRepository implements IOrderDetailRepository {
-    private static final String BASEURL = "http://localhost:8081/api-orders/";
-    private static final String ORDERS_URL = BASEURL + "orders";
+    private static final String BASEURL = "http://localhost:8081/api-orders/details/";
 
     @Override
     public OrderDetailDTO getOrderDetailById(Integer id) {
-        WebClient webClient = WebClient.create(ORDERS_URL + id);
+        WebClient webClient = WebClient.create(BASEURL + id);
         try {
             ResponseEntity<OrderDetailDTO> response = webClient.get()
                     .accept(MediaType.APPLICATION_JSON)
