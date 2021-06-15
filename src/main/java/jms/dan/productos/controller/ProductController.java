@@ -74,4 +74,16 @@ public class ProductController {
     public ResponseEntity<?> getProducts(@RequestParam(required = false) Integer minStock, @RequestParam(required = false) Integer maxStock, @RequestParam(required = false) Double price) {
         return ResponseEntity.ok(productService.getProducts(minStock, maxStock, price));
     }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<?> deleteProduct(@PathVariable Integer id) {
+        try {
+            productService.deleteProduct(id);
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body("Product deleted successfully");
+        } catch (ApiException e) {
+            return new ResponseEntity<>(
+                    new ApiError(e.getCode(), e.getDescription(), e.getStatusCode()),
+                    HttpStatus.valueOf(e.getStatusCode()));
+        }
+    }
 }
