@@ -15,6 +15,7 @@ public class StockMovement {
     private Product product;
     @OneToOne
     private ProvisionDetail provisionDetail;
+    private Integer orderDetailId;
 
     public StockMovement() {
     }
@@ -74,5 +75,13 @@ public class StockMovement {
 
     public void setProvisionDetail(ProvisionDetail provisionDetail) {
         this.provisionDetail = provisionDetail;
+    }
+
+    public Integer getOrderDetailId() {
+        return orderDetailId;
+    }
+
+    public void setOrderDetailId(Integer orderDetailId) {
+        this.orderDetailId = orderDetailId;
     }
 }

@@ -65,7 +65,6 @@ public class StockMovementService implements IStockMovementService {
         return stockMovementRepository.findAll();
     }
 
-    // TODO probar
     @JmsListener(destination = "COLA_PEDIDOS")
     public void handle(List<Integer> orderDetailIds) throws JmsException {
         logger.info("orderDetailIds size: " + orderDetailIds.size());
@@ -87,6 +86,7 @@ public class StockMovementService implements IStockMovementService {
         StockMovement stockMovement = new StockMovement();
         stockMovement.setDate(Instant.now());
         stockMovement.setProduct(newProduct);
+        stockMovement.setOrderDetailId(detailDTO.getId());
         stockMovement.setOutputAmount(detailDTO.getQuantity());
 
         if (newProduct.getActualStock() < newProduct.getMinimumStock()) {
