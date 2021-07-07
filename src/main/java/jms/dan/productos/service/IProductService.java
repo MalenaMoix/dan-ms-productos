@@ -1,6 +1,6 @@
 package jms.dan.productos.service;
 
-import jms.dan.productos.domain.Product;
+import jms.dan.productos.model.Product;
 
 import java.util.List;
 

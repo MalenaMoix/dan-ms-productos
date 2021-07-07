@@ -1,6 +1,6 @@
 package jms.dan.productos.service;
 
-import jms.dan.productos.domain.Product;
+import jms.dan.productos.model.Product;
 import jms.dan.productos.exceptions.ApiException;
 import jms.dan.productos.repository.IProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,18 +28,18 @@ public class ProductService implements IProductService {
         product.setDescription(newProduct.getDescription());
         product.setPrice(newProduct.getPrice());
         product.setActualStock(newProduct.getActualStock());
-        productRepository.save(product);
-        return product;
+        product.setMinimumStock(newProduct.getMinimumStock());
+        return productRepository.save(product);
     }
 
     public List<Product> getProducts(Integer minStock, Integer maxStock, Double price) {
-        if(minStock == null && maxStock == null && price == null)
+        if (minStock == null && maxStock == null && price == null)
             return productRepository.findAll();
-        if(price == null)
+        if (price == null)
             return productRepository.findByStock(minStock, maxStock);
-        if(minStock == null)
+        if (minStock == null)
             return productRepository.findByPriceAndMaxStock(maxStock, price);
-        if(maxStock == null)
+        if (maxStock == null)
             return productRepository.findByPriceAndMinStock(minStock, price);
 
         return productRepository.findByStockAndPrice(minStock, maxStock, price);

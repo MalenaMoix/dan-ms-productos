@@ -1,9 +1,6 @@
-package jms.dan.productos.domain;
+package jms.dan.productos.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Product {
@@ -14,17 +11,19 @@ public class Product {
     private String description;
     private Double price;
     private Integer actualStock;
+    private Integer minimumStock;
 
     public Product() {
 
     }
 
-    public Product(Integer id, String name, String description, Double price, Integer actualStock) {
+    public Product(Integer id, String name, String description, Double price, Integer actualStock, Integer minimumStock) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.actualStock = actualStock;
+        this.minimumStock = minimumStock;
     }
 
     public Integer getId() {
@@ -65,5 +64,13 @@ public class Product {
 
     public void setActualStock(Integer actualStock) {
         this.actualStock = actualStock;
+    }
+
+    public Integer getMinimumStock() {
+        return minimumStock;
+    }
+
+    public void setMinimumStock(Integer minimumStock) {
+        this.minimumStock = minimumStock;
     }
 }
