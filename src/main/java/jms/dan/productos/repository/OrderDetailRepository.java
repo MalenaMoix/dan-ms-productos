@@ -42,6 +42,6 @@ public class OrderDetailRepository implements IOrderDetailRepository {
     }
 
     private OrderDetailDTO defaultOrderDetailById() {
-        return new OrderDetailDTO();
+        return null;
     }
 }
